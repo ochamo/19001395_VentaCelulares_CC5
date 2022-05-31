@@ -1,0 +1,27 @@
+<div id="parentContainer">
+
+    <div id="loginContainer">
+        <form id="login" [formGroup]="loginForm" (ngSubmit)="login()">
+            <mat-form-field>
+                <mat-label>
+                    Correo
+                </mat-label>
+                <input matInput type="email" formControlName="userName">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>
+                    Password
+                </mat-label>
+                <input matInput type="password" formControlName="pass">
+            </mat-form-field>
+            <mat-error *ngIf="userNotFoundMessage">Cuenta no encontrada</mat-error>
+            <br>
+            <br>
+            <button mat-flat-button type="submit" color="primary">Ingresar al sistema</button>
+            <br>
+            <br>
+            <button mat-flat-button (click)="registerUser()">Registrar usuario</button>
+        </form>
+    </div>
+</div>

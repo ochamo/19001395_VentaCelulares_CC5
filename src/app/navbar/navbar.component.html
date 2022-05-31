@@ -1,0 +1,13 @@
+<ng-container *ngIf="isLoggedIn()">
+    <mat-toolbar class="close-session" color="primary">
+        <div>
+            <a mat-button routerLink="nit">Mis Nit</a>
+        </div>
+        <div>
+            <a mat-button>Mis Direcciones</a>
+        </div>
+        <div>
+            <a mat-button (click)="logOut()">Cerrar sesión</a>
+        </div>
+    </mat-toolbar>
+</ng-container>

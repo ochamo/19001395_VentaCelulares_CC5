@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>
+    Agregar Nit
+</h1>
+<div id="createNitContainer" mat-dialog-content>
+    <div>
+        <form [formGroup]="createNitForm" (ngSubmit)="createNit()">
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Nombre
+                </mat-label>
+                <input matInput type="text" formControlName="nitName">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Nit
+                </mat-label>
+                <input matInput type="text" formControlName="nitNumber">
+            </mat-form-field>
+            <br>
+            <br>
+            <button mat-flat-button color="primary">Guardar</button>
+        </form>
+    </div>
+</div>

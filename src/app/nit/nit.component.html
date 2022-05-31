@@ -1,0 +1,12 @@
+<div class="fab-button-container">
+    <button (click)="openCreateNit()"  mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<div id="parentOfList">
+    <h2>Tu listado de nits</h2>
+    <div id="listOfNits" *ngFor="let nit of listOfNits; last as isLast">
+        <app-nit-list-item [nitItem]="nit"></app-nit-list-item>
+        <span *ngIf="!isLast">&nbsp;</span>
+    </div>
+</div>
