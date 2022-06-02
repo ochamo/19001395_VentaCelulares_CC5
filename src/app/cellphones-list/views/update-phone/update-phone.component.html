@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Actualizar teléfono</h1>
+
+<div id="createPhoneContainer" mat-dialog-content>
+    <div>
+        <form [formGroup]="form" (ngSubmit)="updatePhone()">
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Nombre
+                </mat-label>
+                <input matInput type="text" formControlName="model">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Descripción
+                </mat-label>
+                <input matInput type="text" formControlName="descr">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Características
+                </mat-label>
+                <input matInput type="text" formControlName="caract">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    No. serie
+                </mat-label>
+                <input matInput type="text" formControlName="numSeri">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Imagen(url)
+                </mat-label>
+                <input matInput type="text" formControlName="img">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Precio(Q)
+                </mat-label>
+                <input matInput type="text" formControlName="preci">
+            </mat-form-field>
+            <button mat-flat-button color="primary">Guardar</button>
+        </form>
+    </div>
+</div>
+

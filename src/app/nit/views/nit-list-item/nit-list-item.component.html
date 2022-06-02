@@ -1,14 +1,9 @@
-<!--div class="columnItems">
-    <p>
-        {{nitItem.nombreNit}}
-    </p>
-    <p>
-        {{nitItem.nit}}
-    </p>
-</div-->
 
 <mat-card>
-    <mat-card-title>Nombre: {{nitItem.nombreNit}}</mat-card-title>
-    <mat-card-subtitle>NIT: {{nitItem.nit}}
+    <mat-card-title>NIT: {{nitItem.nit}}</mat-card-title>
+    <mat-card-subtitle>Nombre: {{nitItem.nombreNit}}
     </mat-card-subtitle>
+    <mat-card-actions>
+        <button (click)="emitUpdateEvent()"   mat-button>Actualizar información</button>
+      </mat-card-actions>
 </mat-card>

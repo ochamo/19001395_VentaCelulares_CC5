@@ -5,9 +5,10 @@
 </div>
 <div id="parentOfList">
     <h2>Teléfonos disponibles</h2>
-    <div id=listOfPhones *ngFor="let it of listOfPhones; last as isLast">
+    <div id=listOfPhones class="listOf" *ngFor="let it of listOfPhones; last as isLast">
         <app-phone-item 
         (emitStockEvent)="showUpdateStock($event)"
+        (emitUpdateEvent)="showUpdatePhone($event)"
         (emitPurchaseEvent)="showPurchaseAction($event)"
          [phoneItem]="it" [isAdmin]="isAdmin()"
          ></app-phone-item>

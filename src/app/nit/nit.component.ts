@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { NitResponse } from '../shared/model/response/nit.response';
 import { NitService } from '../shared/service/nit/nit.service';
 import { CreateNitDialogComponent } from './views/create-nit-dialog/create-nit-dialog.component';
+import { UpdateNitComponent } from './views/update-nit/update-nit.component';
 
 @Component({
   selector: 'app-nit',
@@ -49,6 +50,22 @@ export class NitComponent implements OnInit, OnDestroy {
 
     this.subs.push(sub);
 
+  }
+
+  showUpdateNit(event: NitResponse): void {
+    const ref = this.dialog.open(UpdateNitComponent, {
+      width: '500px',
+      height: '500px',
+      data: event
+    });
+
+    const sub = ref.afterClosed().subscribe({
+      next: (res) => {
+        this.getNits();
+      }
+    });
+
+    this.subs.push(sub);
   }
 
 

@@ -6,7 +6,7 @@
 <div id="parentOfList">
     <h2>Tu listado de nits</h2>
     <div id="listOfNits" *ngFor="let nit of listOfNits; last as isLast">
-        <app-nit-list-item [nitItem]="nit"></app-nit-list-item>
+        <app-nit-list-item (emitUpdate)="showUpdateNit($event)" [nitItem]="nit"></app-nit-list-item>
         <span *ngIf="!isLast">&nbsp;</span>
     </div>
 </div>

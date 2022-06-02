@@ -18,6 +18,8 @@ export class PhoneItemComponent implements OnInit {
   @Output()
   emitPurchaseEvent = new EventEmitter<CellphoneResponse>();
 
+  @Output()
+  emitUpdateEvent = new EventEmitter<CellphoneResponse>();
   constructor() { }
 
   ngOnInit(): void {
@@ -25,6 +27,9 @@ export class PhoneItemComponent implements OnInit {
 
   emitUpdateStockEvent() {
     this.emitStockEvent.emit(this.phoneItem.idCelular);
+  }
+  emitUpdatePhoneEvent() {
+    this.emitUpdateEvent.emit(this.phoneItem);
   }
 
   emitPurchaseIntentionEvent() {

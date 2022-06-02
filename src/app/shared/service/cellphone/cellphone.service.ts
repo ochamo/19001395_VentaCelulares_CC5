@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CreateCellphoneRequest } from '../../model/request/create-cellphone.request';
+import { UpdatePhoneRequest } from '../../model/request/update-phone.request';
 import { UpdateStockRequest } from '../../model/request/update-stock.request';
 import { CellphoneResponse } from '../../model/response/cellphone.response';
 
@@ -25,6 +26,10 @@ export class CellphoneService {
 
   updateStock(request: UpdateStockRequest): Observable<any> {
     return this.http.put(environment.endpoint + '/Stock', request);
+  }
+  
+  update(request: UpdatePhoneRequest): Observable<any> {
+    return this.http.put(environment.endpoint + '/Cellphone', request);
   }
 
 }

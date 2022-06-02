@@ -31,6 +31,8 @@ import { AddressListItemComponent } from './address-list/views/address-list-item
 import { LocalityService } from './shared/service/locality/locality.service';
 import { UpdateStockComponent } from './cellphones-list/views/update-stock/update-stock.component';
 import { MakePurchaseViewComponent } from './cellphones-list/views/make-purchase-view/make-purchase-view.component';
+import { UpdatePhoneComponent } from './cellphones-list/views/update-phone/update-phone.component';
+import { UpdateNitComponent } from './nit/views/update-nit/update-nit.component';
 
 export function playerFactory() {
   return player;
@@ -55,6 +57,8 @@ export function playerFactory() {
     AddressListItemComponent,
     UpdateStockComponent,
     MakePurchaseViewComponent,
+    UpdatePhoneComponent,
+    UpdateNitComponent,
   ],
   imports: [
     BrowserModule,

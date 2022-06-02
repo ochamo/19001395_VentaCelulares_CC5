@@ -4,7 +4,7 @@ export class CellphoneResponse {
     imagen: string;
     descripcion: string;
     caracteristicas: string;
-    model: string;
+    modelo: string;
     precio: number;
     numSerie: string;
 
@@ -22,7 +22,7 @@ export class CellphoneResponse {
         this.cantidad = cantidad;
         this.imagen = imagen;
         this.descripcion = descripcion;
-        this.model = model;
+        this.modelo = model;
         this.precio = precio;
         this.numSerie = numSerie;
         this.caracteristicas = caracteristicas;

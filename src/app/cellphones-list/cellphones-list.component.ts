@@ -7,6 +7,7 @@ import { TokenService } from '../shared/service/token/token.service';
 import { SuccessDialogArgs, SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 import { CreatePhoneComponent } from './views/create-phone/create-phone.component';
 import { MakePurchaseArgs, MakePurchaseViewComponent } from './views/make-purchase-view/make-purchase-view.component';
+import { UpdatePhoneComponent } from './views/update-phone/update-phone.component';
 import { UpdateStockArgs, UpdateStockComponent } from './views/update-stock/update-stock.component';
 
 @Component({
@@ -43,6 +44,20 @@ export class CellphonesListComponent implements OnInit, OnDestroy {
       height: '500px'
     });
 
+    const sub = ref.afterClosed().subscribe({
+      next: (res) => {
+        this.getPhones();
+      }
+    });
+    this.subs.push(sub);
+  }
+
+  public showUpdatePhone(event: CellphoneResponse) {
+    const ref = this.dialog.open(UpdatePhoneComponent, {
+      width: '500px',
+      height: '500px',
+      data: event
+    });
     const sub = ref.afterClosed().subscribe({
       next: (res) => {
         this.getPhones();

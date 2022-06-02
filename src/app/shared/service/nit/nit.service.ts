@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CreateNitRequest } from '../../model/request/create-nit.request';
+import { UpdateNitRequest } from '../../model/request/update-nit.request';
 import { NitResponse } from '../../model/response/nit.response';
 
 @Injectable({
@@ -20,6 +21,10 @@ export class NitService {
 
   getNits(): Observable<NitResponse[]> {
     return this.http.get<NitResponse[]>(environment.endpoint + '/Nit');
+  }
+
+  update(nit: UpdateNitRequest): Observable<any> {
+    return this.http.put(environment.endpoint + '/Nit', nit);
   }
 
 }

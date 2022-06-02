@@ -1,6 +1,6 @@
 <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title>{{phoneItem.model}}</mat-card-title>
+      <mat-card-title>{{phoneItem.modelo}}</mat-card-title>
     </mat-card-header>
     <img mat-card-image src="{{phoneItem.imagen}}">
     <mat-card-content>
@@ -22,6 +22,7 @@
     </mat-card-content>
     <mat-card-actions *ngIf="isAdmin">
       <button (click)="emitUpdateStockEvent()" mat-button>Actualizar stock</button>
+      <button (click)="emitUpdatePhoneEvent()" mat-button>Actualizar información</button>
     </mat-card-actions>
     <mat-card-actions *ngIf="!isAdmin && phoneItem.cantidad > 0">
         <button mat-button (click)="emitPurchaseIntentionEvent()">Comprar</button>

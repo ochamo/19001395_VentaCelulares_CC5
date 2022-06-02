@@ -7,6 +7,7 @@ import { NitComponent } from './nit/nit.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { ClientGuard } from './shared/guard/client.guard';
 import { LoginGuard } from './shared/guard/login.guard';
 
 const routes: Routes = [
@@ -28,10 +29,12 @@ const routes: Routes = [
   {
     path: 'nit',
     component: NitComponent,
+    canActivate: [ClientGuard]
   },
   {
     path: 'addresses',
-    component: AddressListComponent
+    component: AddressListComponent,
+    canActivate: [ClientGuard]
   },
   {
     path: 'notAuthorized',
