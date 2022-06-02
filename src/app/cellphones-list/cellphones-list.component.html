@@ -1,1 +1,16 @@
-<p>cellphones-list works!</p>
+<div class="fab-button-container" *ngIf="isAdmin()">
+    <button (click)="openCreatePhone()" mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<div id="parentOfList">
+    <h2>Teléfonos disponibles</h2>
+    <div id=listOfPhones *ngFor="let it of listOfPhones; last as isLast">
+        <app-phone-item 
+        (emitStockEvent)="showUpdateStock($event)"
+        (emitPurchaseEvent)="showPurchaseAction($event)"
+         [phoneItem]="it" [isAdmin]="isAdmin()"
+         ></app-phone-item>
+        <span *ngIf="!isLast">&nbsp;</span>
+    </div>
+</div>

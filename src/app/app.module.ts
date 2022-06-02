@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MaterialModule } from './shared/module/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
@@ -25,6 +25,12 @@ import { LoginGuard } from './shared/guard/login.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { PhoneItemComponent } from './cellphones-list/views/phone-item/phone-item.component';
 import { CreatePhoneComponent } from './cellphones-list/views/create-phone/create-phone.component';
+import { AddressListComponent } from './address-list/address-list.component';
+import { CreateAddressComponent } from './address-list/views/create-address/create-address.component';
+import { AddressListItemComponent } from './address-list/views/address-list-item/address-list-item.component';
+import { LocalityService } from './shared/service/locality/locality.service';
+import { UpdateStockComponent } from './cellphones-list/views/update-stock/update-stock.component';
+import { MakePurchaseViewComponent } from './cellphones-list/views/make-purchase-view/make-purchase-view.component';
 
 export function playerFactory() {
   return player;
@@ -44,6 +50,11 @@ export function playerFactory() {
     SuccessDialogComponent,
     PhoneItemComponent,
     CreatePhoneComponent,
+    AddressListComponent,
+    CreateAddressComponent,
+    AddressListItemComponent,
+    UpdateStockComponent,
+    MakePurchaseViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +71,9 @@ export function playerFactory() {
     AuthGuard,
     UserService,
     NitService,
+    LocalityService
   ],
+  entryComponents: [CreateAddressComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

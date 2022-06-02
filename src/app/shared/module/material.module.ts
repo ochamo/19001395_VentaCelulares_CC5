@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 @NgModule({
     exports: [
@@ -24,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
         MatMomentDateModule,
         MatSelectModule,
         MatDialogModule,
-        MatCardModule
+        MatCardModule,
+        MatCheckboxModule
     ],
     providers: [
         MatDatepickerModule,

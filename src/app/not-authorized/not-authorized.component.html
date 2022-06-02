@@ -1,4 +1,6 @@
 <div id="unauthorizedAnimation">
     <h1>Acceso no autorizado</h1>
     <ng-lottie id="lottie" [options]="options"></ng-lottie>
+    <button mat-flat-button color="primary" *ngIf="loggedIn()">Cerrar sesión</button>
+    <button mat-flat-button color="primary" routerLink="/login" *ngIf="!loggedIn()">Iniciar sesión</button>
 </div>

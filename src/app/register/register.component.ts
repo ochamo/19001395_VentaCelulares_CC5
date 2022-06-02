@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { RegisterRequest } from '../shared/model/request/register.request';
 import { UserService } from '../shared/service/user/user.service';
-import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
+import { SuccessDialogArgs, SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-register',
@@ -65,7 +65,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
     let createSub = this.registerUserService.createUser(user).subscribe({
       next: (result) => {
         const ref = this.dialog.open(SuccessDialogComponent, {
-          width: '500px'
+          width: '500px',
+          data: new SuccessDialogArgs(
+            'Creación de cuenta',
+            'Cuenta creada exitosamente'
+          )
         });
 
         let dialogSub = ref.afterClosed().subscribe(result => {

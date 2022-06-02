@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Realizar compra</h1>
+<div>
+    <form [formGroup]="createPurchaseForm" (ngSubmit)="createPurchase()">
+        <mat-form-field appearance="fill">
+            <mat-label>
+                Número de tarjeta
+            </mat-label>
+            <input matInput type="text" formControlName="numTarjeta">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Dirección para envio</mat-label>
+            <mat-select formControlName="idDirecc">
+                <mat-option *ngFor="let addressItem of userAddresses" [value]="addressItem">
+                    {{addressItem.nombreDir}}:  {{addressItem.nombreDep}},
+                    {{addressItem.nombreMuni}},
+                    {{addressItem.avenida}},
+                    {{addressItem.calle}}, Z{{addressItem.zona}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-checkbox color="primary" formControlName="wantNit">
+            ¿Desea NIT? De lo contrario, la factura se emitira como consumidor final
+        </mat-checkbox>
+        <br>
+        <ng-container *ngIf="showNitDropdown">
+            <br>
+            <mat-form-field  appearance="fill">
+                <mat-label>NIT para la factura</mat-label>
+                <mat-select formControlName="nitN">
+                    <mat-option *ngFor="let nit of userNits" [value]="nit">
+                        {{nit.nombreNit}}: {{nit.nit}} 
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </ng-container>
+        <p><b>Total: Q{{data.cellphone.precio.toFixed(2)}}</b></p>
+        <button mat-flat-button color="primary">Comprar</button>
+    </form>
+</div>

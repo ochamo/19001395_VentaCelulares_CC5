@@ -1,0 +1,12 @@
+<div class="fab-button-container">
+    <button (click)="openCreateAddress()"  mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<div id="parentOfList">
+    <h2>Tu listado de direcciones</h2>
+    <div id="listOfAddress" *ngFor="let it of listOfAddress; last as isLast">
+        <app-address-list-item [addressItem]="it"></app-address-list-item>
+        <span *ngIf="!isLast">&nbsp;</span>
+    </div>
+</div>

@@ -1,1 +1,29 @@
-<p>phone-item works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{phoneItem.model}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{phoneItem.imagen}}">
+    <mat-card-content>
+      <p>
+        <b>Descripción: </b>{{phoneItem.descripcion}}
+      </p>
+      <p>
+         <b>Caracteristicas:</b> {{phoneItem.caracteristicas}} 
+      </p>
+      <p>
+          <b>Stock:</b> {{phoneItem.cantidad}}
+      </p>
+      <p>
+          <b>Serie:</b> {{phoneItem.numSerie}}
+      </p>
+      <p>
+          <b>Precio:</b> Q {{phoneItem.precio.toFixed(2)}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions *ngIf="isAdmin">
+      <button (click)="emitUpdateStockEvent()" mat-button>Actualizar stock</button>
+    </mat-card-actions>
+    <mat-card-actions *ngIf="!isAdmin && phoneItem.cantidad > 0">
+        <button mat-button (click)="emitPurchaseIntentionEvent()">Comprar</button>
+    </mat-card-actions>
+</mat-card>

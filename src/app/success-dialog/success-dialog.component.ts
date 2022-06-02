@@ -1,5 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export class SuccessDialogArgs {
+  title: string;
+  text: string;
+
+  constructor(title: string, text: string) {
+    this.text = text;
+    this.title = title;
+  }
+
+}
 
 @Component({
   selector: 'app-success-dialog',
@@ -9,7 +20,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class SuccessDialogComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<SuccessDialogComponent>
+    public dialogRef: MatDialogRef<SuccessDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: SuccessDialogArgs
   ) { }
 
   ngOnInit(): void {

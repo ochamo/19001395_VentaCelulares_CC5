@@ -12,7 +12,7 @@ import { CreateNitDialogComponent } from './views/create-nit-dialog/create-nit-d
 })
 export class NitComponent implements OnInit, OnDestroy {
   private subs: Subscription[] = [];
-  listOfNits: NitResponse[];
+  listOfNits: NitResponse[] = [];
   constructor(
     private nitService: NitService,
     private dialog: MatDialog

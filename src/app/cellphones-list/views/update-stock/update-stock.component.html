@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Actualizar stock</h1>
+<div id="updateStockContainer" mat-dialog-content>
+    <form [formGroup]="updateStockForm" (ngSubmit)="updateStockPhone()">
+        <mat-form-field appearance="fill">
+            <mat-label>
+                Cantidad a sumar
+            </mat-label>
+            <input matInput type="text" formControlName="cant">
+        </mat-form-field>
+        <br>
+        <button mat-flat-button color="primary">Actualizar stock</button>
+    </form>
+</div>

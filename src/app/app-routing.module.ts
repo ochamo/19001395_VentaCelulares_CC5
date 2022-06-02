@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddressListComponent } from './address-list/address-list.component';
 import { CellphonesListComponent } from './cellphones-list/cellphones-list.component';
 import { LoginComponent } from './login/login.component';
 import { NitComponent } from './nit/nit.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 import { LoginGuard } from './shared/guard/login.guard';
 
 const routes: Routes = [
@@ -21,20 +23,26 @@ const routes: Routes = [
   {
     path: 'cellphones',
     component: CellphonesListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'nit',
     component: NitComponent,
   },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: 'addresses',
+    component: AddressListComponent
   },
   {
     path: 'notAuthorized',
     component: NotAuthorizedComponent
-  }
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+ 
 ];
 
 @NgModule({

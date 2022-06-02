@@ -25,4 +25,9 @@ export class NavbarComponent implements OnInit {
     this.tokenService.clear();
     this.router.navigate(['/login']);
   }
+
+  isUser(): boolean {
+    return this.tokenService.getRole() == 2;
+  }
+
 }

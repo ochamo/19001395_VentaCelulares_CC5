@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CellphoneResponse } from 'src/app/shared/model/response/cellphone.response';
 
 @Component({
   selector: 'app-phone-item',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./phone-item.component.scss']
 })
 export class PhoneItemComponent implements OnInit {
+  @Input()
+  phoneItem: CellphoneResponse;
+  @Input()
+  isAdmin: boolean;
+
+  @Output()
+  emitStockEvent = new EventEmitter<number>();
+
+  @Output()
+  emitPurchaseEvent = new EventEmitter<CellphoneResponse>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitUpdateStockEvent() {
+    this.emitStockEvent.emit(this.phoneItem.idCelular);
+  }
+
+  emitPurchaseIntentionEvent() {
+    this.emitPurchaseEvent.emit(this.phoneItem);
   }
 
 }

@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Agregar dirección</h1>
+<div id="createaddressContainer" mat-dialog-content>
+    <div>
+        <form [formGroup]="createAddressForm" (ngSubmit)="createAddress()">
+            <mat-form-field appearance="fill">
+                <mat-label>Departamento</mat-label>
+                <mat-select formControlName="depId">
+                    <mat-option *ngFor="let dep of localities" [value]="dep">
+                        {{dep.nombreDep}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field *ngIf="currentDep != undefined" appearance="fill">
+                <mat-label>Municipio</mat-label>
+                <mat-select formControlName="idMuni">
+                    <mat-option *ngFor="let muni of currentDep.munis" [value]="muni.idMuni">
+                        {{muni.nombreMuni}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Nombre(Mi casa, etc)
+                </mat-label>
+                <input matInput type="text" formControlName="nombreDir">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Avenida
+                </mat-label>
+                <input matInput type="text" formControlName="avenida">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Calle
+                </mat-label>
+                <input matInput type="text" formControlName="calle">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>
+                    Zona
+                </mat-label>
+                <input matInput type="number" formControlName="zona">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-flat-button color="primary">Guardar</button>
+        </form>
+    </div>
+</div>
